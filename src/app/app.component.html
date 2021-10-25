@@ -1,0 +1,12 @@
+<h1>I am in the app.component</h1>
+
+<app-chatList></app-chatList>
+
+<p *ngIf="isLoaded">we are loaded</p>
+<p *ngIf="!isLoaded">we are not loaded</p>
+
+<button (click)="toggleLoaded()">Toggle Loaded</button>
+
+<ul *ngIf="isLoaded">
+  <li *ngFor="let item of data">#{{ item.channel }} [{{ item.created_on }}] - {{ item.name }}: {{ item.message }}</li>
+</ul>
