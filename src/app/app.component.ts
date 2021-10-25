@@ -4,25 +4,25 @@ import { interval, Observable } from 'rxjs';
 import { ChatMessage } from './models/chat';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+	selector: 'app-root',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  isLoaded: boolean = false;
+	isLoaded: boolean = false;
 
-  data: ChatMessage[] = [];
+	data: ChatMessage[] = [];
 
-  constructor(public service: FirstService) {}
+	constructor(public service: FirstService) { }
 
-  ngOnInit(): void {
-    this.service.getMessage().subscribe((data) => {
-      this.data = data;
-    });
-  }
+	ngOnInit(): void {
+		this.service.getMessage().subscribe((data) => {
+			this.data = data;
+		});
+	}
 
 
-  toggleLoaded() {
-    this.isLoaded = !this.isLoaded;
-  }
+	toggleLoaded() {
+		this.isLoaded = !this.isLoaded;
+	}
 }

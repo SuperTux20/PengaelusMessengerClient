@@ -7,15 +7,15 @@ import { ChatListComponent } from './chatList/chatList.component';
 import { ChatMessageComponent } from './chatMessage/chatMessage.component';
 
 @NgModule({
-  declarations: [		
-    AppComponent,
-      ChatListComponent,
-      ChatMessageComponent
-   ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [FirstService],
-  bootstrap: [AppComponent]
+	declarations: [
+		AppComponent,
+			ChatListComponent,
+			ChatMessageComponent
+	 ],
+	imports: [
+		BrowserModule
+	],
+	providers: [FirstService],
+	bootstrap: [AppComponent]
 })
 export class AppModule { }
