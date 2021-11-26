@@ -10,25 +10,31 @@
 
 	ul>li {
 		display: inline;
-		padding-right: 1em;
+		padding-right: 5em;
 		margin: 0;
 	}
 }
 
-.game {
-	margin-right: 1em;
-	background-color: white;
+.container {
+	margin-bottom: 10%;
 }
 
 .main {
 	text-align: center;
 	display: flex;
+	padding: 0;
+	margin: 0;
 	flex-direction: row;
 	justify-content: center;
 
-	li {
-		display: inline-block;
-		width: 25%;
+	.param {
+		width: 100%;
 		border: 1px solid black;
+		flex-direction: column;
+		display: flex;
+	}
+
+	button {
+		margin-bottom: 2em;
 	}
 }

@@ -1,18 +1,56 @@
 <div>
 	<div class="navbar">
 		<ul>
-			<li *ngFor="let link of links"><a [href]="link.url">{{link.name}}</a></li>
+			<li *ngFor="let action of actions"><button (click)="switchMenu(action)">{{action}}</button>
+			</li>
 		</ul>
 	</div>
 	<div class="container">
+		<p id="output">Output will appear here.</p>
 		<ul class="main">
-			<li class="game" *ngFor="let game of games">
-				<h3>{{game.title}}</h3>
-				<p>{{game.desc}}</p>
-			</li>
+			<div *ngIf="selected == 0">
+				<button (click)="gac()">{{actions[selected]}}</button>
+				<div class="param" *ngFor="let param of (params0 | keyvalue)">
+					<h3>{{param.key}}</h3>
+					<input [value]="param.value" />
+				</div>
+			</div>
 		</ul>
-		<p>
-			{{about}}
-		</p>
+		<ul class="main">
+			<div *ngIf="selected == 1">
+				<button (click)="gamic()">{{actions[selected]}}</button>
+				<div class="param" *ngFor="let param of (params1 | keyvalue)">
+					<h3>{{param.key}}</h3>
+					<input [value]="param.value" />
+				</div>
+			</div>
+		</ul>
+		<ul class="main">
+			<div *ngIf="selected == 2">
+				<button (click)="snmic()">{{actions[selected]}}</button>
+				<div class="param" *ngFor="let param of (params2 | keyvalue)">
+					<h3>{{param.key}}</h3>
+					<input [value]="param.value" />
+				</div>
+			</div>
+		</ul>
+		<ul class="main">
+			<div *ngIf="selected == 3">
+				<button (click)="uc()">{{actions[selected]}}</button>
+				<div class="param" *ngFor="let param of (params3 | keyvalue)">
+					<h3>{{param.key}}</h3>
+					<input [value]="param.value" />
+				</div>
+			</div>
+		</ul>
+		<ul class="main">
+			<div *ngIf="selected == 4">
+				<button (click)="dc()">{{actions[selected]}}</button>
+				<div class="param" *ngFor="let param of (params4 | keyvalue)">
+					<h3>{{param.key}}</h3>
+					<input [value]="param.value" />
+				</div>
+			</div>
+		</ul>
 	</div>
 </div>

@@ -1,37 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-
 @Component({
 	selector: 'base-root',
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-	title = 'pengaelusmessengerclient';
-	games = [{
-		title: "Succubus with a Gun",
-		desc: "Samirah is on a mission to become the queen of Hell, and she's not afraid to kill any who stand in her way."
-	}, {
-		title: "Space Cadet NEO",
-		desc: "A classic reborn! Built from the ground up, Space Cadet NEO is a faithful recreation of the original 3D Pinball for Windows that you know and love, except it's for ALL platforms this time!"
-	}, {
-		title: "Epic RPG",
-		desc: "A simple RPG that doesn't have a world map."
-	}]
+	constructor(private http: HttpClient) { }
+	title = "pengaelusmessengerclient";
+	postId: any;
+	params0 = {}
+	params1 = { channel: "elandon" }
+	params2 = { username: "elandon", message: "test" }
+	params3 = { channel: "elandon" }
+	params4 = { channel: "elandon" }
+	actions = ["Get all channels", "Get all messages in channel", "Send new message in channel", "Update channel", "Delete channel"]
+	url = "http://73.19.65.35:3500/api/channel/";
+	selected: number = 0;
 
-	links = [{
-		name: "Penagelus Gaming",
-		url: "."
-	}, {
-		name: "GitHub",
-		url: "https://github.com/SuperTux20"
-	}, {
-		name: "YouTube",
-		url: "https://www.youtube.com/channel/UCBAQbC6vCewEtfAflsbueXA"
-	}, {
-		name: "Personal Website",
-		url: "https://supertux20.github.io"
-	}]
+	switchMenu(val: string) { this.selected = parseInt(this.actions.indexOf(val).toString()); }
 
-	about = "Pengaelus Gaming is dedicated to only bringing you the best that one developer can provide."
+	gac() { this.http.get(this.url).subscribe(res => document.getElementById("output")!.innerText = JSON.stringify(res)) }
+	gamic() { this.http.get(this.url + document.getElementsByTagName("input")[0].value).subscribe(res => document.getElementById("output")!.innerText = JSON.stringify(res)) }
+	snmic() { this.http.post(this.url + document.getElementsByTagName("input")[1].value, { username: document.getElementsByTagName("input")[1].value, message: document.getElementsByTagName("input")[0].value }).subscribe(res => document.getElementById("output")!.innerText = JSON.stringify(res)) }
+	uc() { this.http.patch(this.url + document.getElementsByTagName("input")[0].value, { name: "general" }).subscribe(res => document.getElementById("output")!.innerText = JSON.stringify(res)) }
+	dc() { this.http.delete(this.url + document.getElementsByTagName("input")[0].value).subscribe(res => document.getElementById("output")!.innerText = JSON.stringify(res)) }
 }
