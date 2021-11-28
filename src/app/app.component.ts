@@ -14,7 +14,7 @@ export class AppComponent {
 	params2 = { username: "elandon", message: "test" }
 	params3 = { channel: "elandon" }
 	params4 = { channel: "elandon" }
-	actions = ["Get all channels", "Get all messages in channel", "Send new message in channel", "Update channel", "Delete channel"]
+	actions = ["Get all channels", "Get all messages in channel", "Send new message in channel", "Update channel (TBA)", "Delete channel (TBA)"]
 	url = "http://73.19.65.35:3500/api/channel/";
 	selected: number = 0;
 
