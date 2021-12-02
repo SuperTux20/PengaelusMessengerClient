@@ -20,10 +20,11 @@ export class AppComponent {
 
 	switchMenu(val: string) { this.selected = parseInt(this.actions.indexOf(val).toString()); }
 	setOutput(res: Object) { document.getElementById("output")!.innerText = JSON.stringify(res, null, "|   "); }
+	getInput(idx: number) { return document.getElementsByTagName("input")[idx].value; }
 
 	gac() { this.http.get(this.url).subscribe(res => this.setOutput(res)) }
-	gamic() { this.http.get(this.url + document.getElementsByTagName("input")[0].value).subscribe(res => this.setOutput(res)) }
-	snmic() { this.http.post(this.url + document.getElementsByTagName("input")[1].value, { username: document.getElementsByTagName("input")[1].value, message: document.getElementsByTagName("input")[0].value }).subscribe(res => this.setOutput(res)) }
-	uc() { this.http.patch(this.url + document.getElementsByTagName("input")[0].value, { name: "general" }).subscribe(res => this.setOutput(res)) }
-	dc() { this.http.delete(this.url + document.getElementsByTagName("input")[0].value).subscribe(res => this.setOutput(res)) }
+	gamic() { this.http.get(this.url + this.getInput(0)).subscribe(res => this.setOutput(res)) }
+	snmic() { this.http.post(this.url + this.getInput(1), { username: this.getInput(1), message: this.getInput(0) }).subscribe(res => this.setOutput(res)) }
+	uc() { this.http.patch(this.url + this.getInput(0), { name: this.getInput(0) }).subscribe(res => this.setOutput(res)) }
+	dc() { this.http.delete(this.url + this.getInput(0)).subscribe(res => this.setOutput(res)) }
 }
