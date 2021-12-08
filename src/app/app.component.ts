@@ -1,3 +1,5 @@
+// Commented out code is an attempt at disabling the submit button if the input was invalid
+
 import { Component/*, OnInit*/ } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 @Component({
