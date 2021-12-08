@@ -1,20 +1,22 @@
 <div>
-	<div class="navbar">
+	<div id="navbar">
 		<ul>
 			<li *ngFor="let action of actions"><button (click)="switchMenu(action)">{{action}}</button>
 			</li>
 		</ul>
 	</div>
-	<div class="container">
+	<div id="container">
+		<p *ngIf="selected == 3">This will replace a channel's messages with one message with the username "dummy" and
+			the message "test"</p>
 		<ul class="main" *ngFor="let num of [0, 1, 2, 3, 4]">
 			<div *ngIf="selected == num">
 				<button id="thebutton" type="submit" (click)="thefunction()">{{actions[selected]}}</button>
-				<div class="param" *ngFor="let param of (params[num] | keyvalue)">
-					<h3>{{param.key}}</h3>
-					<input type="text" [value]="param.value" />
+				<div class="param" *ngFor="let param of params[num]">
+					<h3>{{param}}</h3>
+					<input type="text" />
 				</div>
 			</div>
 		</ul>
-		<p id="output">Output will appear here.</p>
+		<p id="output"></p>
 	</div>
 </div>

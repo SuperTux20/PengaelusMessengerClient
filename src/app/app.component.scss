@@ -1,7 +1,7 @@
-.navbar {
+#navbar {
 	width: 100%;
 	background-color: lightgray;
-	padding: 10px;
+	padding: 10px 0;
 
 	ul {
 		padding: 0;
@@ -9,13 +9,15 @@
 	}
 
 	ul>li {
-		display: inline;
-		padding-right: 5em;
+		display: inline-flex;
+		justify-content: space-evenly;
+		width: 20%;
+		padding: 0;
 		margin: 0;
 	}
 }
 
-.container {
+#container {
 	margin-bottom: 10%;
 }
 
