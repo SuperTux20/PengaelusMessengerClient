@@ -6,48 +6,12 @@
 		</ul>
 	</div>
 	<div class="container">
-		<ul class="main">
-			<div *ngIf="selected == 0">
-				<button (click)="gac()">{{actions[selected]}}</button>
-				<div class="param" *ngFor="let param of (params0 | keyvalue)">
+		<ul class="main" *ngFor="let num of [0, 1, 2, 3, 4]">
+			<div *ngIf="selected == num">
+				<button id="thebutton" type="submit" (click)="thefunction()">{{actions[selected]}}</button>
+				<div class="param" *ngFor="let param of (params[num] | keyvalue)">
 					<h3>{{param.key}}</h3>
-					<input [value]="param.value" />
-				</div>
-			</div>
-		</ul>
-		<ul class="main">
-			<div *ngIf="selected == 1">
-				<button (click)="gamic()">{{actions[selected]}}</button>
-				<div class="param" *ngFor="let param of (params1 | keyvalue)">
-					<h3>{{param.key}}</h3>
-					<input [value]="param.value" />
-				</div>
-			</div>
-		</ul>
-		<ul class="main">
-			<div *ngIf="selected == 2">
-				<button (click)="snmic()">{{actions[selected]}}</button>
-				<div class="param" *ngFor="let param of (params2 | keyvalue)">
-					<h3>{{param.key}}</h3>
-					<input [value]="param.value" />
-				</div>
-			</div>
-		</ul>
-		<ul class="main">
-			<div *ngIf="selected == 3">
-				<button (click)="uc()">{{actions[selected]}}</button>
-				<div class="param" *ngFor="let param of (params3 | keyvalue)">
-					<h3>{{param.key}}</h3>
-					<input [value]="param.value" />
-				</div>
-			</div>
-		</ul>
-		<ul class="main">
-			<div *ngIf="selected == 4">
-				<button (click)="dc()">{{actions[selected]}}</button>
-				<div class="param" *ngFor="let param of (params4 | keyvalue)">
-					<h3>{{param.key}}</h3>
-					<input [value]="param.value" />
+					<input type="text" [value]="param.value" />
 				</div>
 			</div>
 		</ul>
