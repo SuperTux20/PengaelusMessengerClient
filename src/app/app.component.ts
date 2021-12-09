@@ -1,13 +1,11 @@
-// Commented out code is an attempt at disabling the submit button if the input was invalid
-
-import { Component/*, OnInit*/ } from "@angular/core";
+import { Component } from "@angular/core";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 @Component({
 	selector: "base-root",
 	templateUrl: "./app.component.html",
 	styleUrls: ["./app.component.scss"]
 })
-export class AppComponent/* implements OnInit*/ {
+export class AppComponent {
 	constructor(private http: HttpClient) { }
 	postId: any;
 	title = "pengaelusmessengerclient";
@@ -15,7 +13,7 @@ export class AppComponent/* implements OnInit*/ {
 	actions = ["Get all channels", "Get all messages in channel", "Send new message in channel", "Update channel (TBA)", "Delete channel"]
 	url = "http://73.19.65.35:3500/api/channel/";
 	selected = 0;
-	formContent = {}
+	valid = false;
 
 	switchMenu(val: string) { this.selected = parseInt(this.actions.indexOf(val).toString()); }
 	setInput(idx: number = 0, val: string = "") { document.getElementsByTagName("input")[idx].value = val; }
@@ -41,7 +39,6 @@ export class AppComponent/* implements OnInit*/ {
 		true_output = JSON.stringify(output)
 		document.getElementById("output")!.innerText = (true_output.includes("\\n")) ? true_output.replace(/\\n/g, "\n").replace(/","/g, "").replace(/\\"/g, "\"").slice(2, -3) : (true_output.charAt(0) == '"') ? true_output.replace(/","/g, "\n").slice(1, -1) : true_output.replace(/","/g, "\n").slice(2, -2);
 	}
-	// inputHandler(e: any) { document.querySelector("button")!.disabled = (this.getInput() == "") ? false : true; }
 	thefunction() {
 		switch (this.selected) {
 			case 0:
@@ -65,5 +62,4 @@ export class AppComponent/* implements OnInit*/ {
 				break;
 		}
 	}
-	// ngOnInit() { let boxes = document.getElementsByTagName("input"); try { for (let idx = 0; idx < boxes.length; idx++) { boxes[idx].addEventListener("input", this.inputHandler); } } catch { } }
 }
